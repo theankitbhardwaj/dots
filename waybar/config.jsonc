@@ -23,6 +23,7 @@
       "class<firefox>": "",
       "class<discord>": "",
       "class<kitty>": "",
+      "class<com.mitchellh.ghostty>": "",
       "class<firefox> title<.*github.*>": "",
       "code": "󰨞",
       "title<.* - (.*) - VSCodium>": "codium $1"
