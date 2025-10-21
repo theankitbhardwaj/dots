@@ -16,6 +16,7 @@
   ],
   "hyprland/workspaces": {
     "format": "{icon} : {name} {windows}",
+    // "format": "{icon}",
     "format-window-separator": " | ",
     "window-rewrite-default": "",
     "window-rewrite": {
@@ -23,6 +24,9 @@
       "class<firefox>": "",
       "class<discord>": "",
       "class<kitty>": "",
+      "class<intellij>": "",
+      "class<steam>": "󰓓",
+      "class<gamescope>": "🎮",
       "class<com.mitchellh.ghostty>": "",
       "class<firefox> title<.*github.*>": "",
       "code": "󰨞",
@@ -30,7 +34,9 @@
     },
     "format-icons": {
       "active": "",
-      "default": ""
+      "default": "󰄰"
+      // "active": "███",
+      // "default": ""
     }
   },
   "tray": {

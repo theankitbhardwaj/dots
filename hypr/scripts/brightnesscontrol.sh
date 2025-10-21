@@ -5,13 +5,6 @@ iconsDir="~/.config/hypr/icons"
 # shellcheck disable=SC1091
 #source "$scrDir/globalcontrol.sh"
 
-# Check if SwayOSD is installed
-use_swayosd=false
-isNotify=${BRIGHTNESS_NOTIFY:-true}
-if command -v swayosd-client >/dev/null 2>&1 && pgrep -x swayosd-server >/dev/null; then
-  use_swayosd=true
-fi
-
 print_error() {
   local cmd
   cmd=$(basename "$0")
@@ -33,11 +26,13 @@ send_notification() {
   # brightinfo=$(brightnessctl info | awk -F "'" '/Device/ {print $2}')
   angle="$((((brightness + 2) / 5) * 5))"
   # shellcheck disable=SC2154
-  ico="${iconsDir}/Wallbash-Icon/media/knob-${angle}.svg"
+  echo "angle: ${angle}"
+  ico="${iconsDir}/knob-${angle}.svg"
+  echo "ico: ${ico}"
   bar=$(seq -s "." $((brightness / 15)) | sed 's/[0-9]//g')
   # [[ "${isNotify}" == true ]] && notify-send -a "HyDE Notify" -r 7 -t 800 -i "${ico}" "${brightness}${bar}"
   #
-  [[ "${isNotify}" == true ]] && notify-send -a "HyDE Notify" -r 7 -t 800 "${brightness}"
+  notify-send -a "Brightness" -i "${ico}" -r 7 -t 800 "${brightness}"
 }
 
 get_brightness() {
@@ -54,7 +49,6 @@ i | -i) # increase the backlight
     step=1
   fi
 
-  $use_swayosd && swayosd-client --brightness raise "$step" && exit 0
   # brightnessctl set +"${step}"%
   ddcutil --bus 16 setvcp 10 + ${step}
   send_notification
@@ -68,9 +62,8 @@ d | -d) # decrease the backlight
 
   if [[ $(get_brightness) -le 1 ]]; then
     ddcutil --bus 16 setvcp 10 - ${step}
-    $use_swayosd && exit 0
+    exit 0
   else
-    $use_swayosd && swayosd-client --brightness lower "$step" && exit 0
     #brightnessctl set "${step}"%
     ddcutil --bus 16 setvcp 10 - ${step}
   fi

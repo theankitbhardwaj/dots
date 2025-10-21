@@ -52,11 +52,10 @@ button:focus {
 
 button:hover {
     background-color: transparent; 
-    color: grey;
+    color: @color14;
     background-size: 30%;
     /* margin: 30px; */
     border-radius: 70px;
-    /* outline-style: dashed; */
 }
 
 /* Adjust the size of the icon or content inside the button */
