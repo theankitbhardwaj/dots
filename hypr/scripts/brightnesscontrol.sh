@@ -21,9 +21,9 @@ EOF
 }
 
 send_notification() {
-  # brightness=$(brightnessctl info | grep -oP "(?<=\()\d+(?=%)" | cat)
-  brightness=$(ddcutil --bus 16 getvcp 10 | sed 's/.*current value = *\([0-9]*\).*/\1/')
-  # brightinfo=$(brightnessctl info | awk -F "'" '/Device/ {print $2}')
+  brightness=$(brightnessctl info | grep -oP "(?<=\()\d+(?=%)" | cat)
+  # brightness=$(ddcutil --bus 15 getvcp 10 | sed 's/.*current value = *\([0-9]*\).*/\1/')
+  brightinfo=$(brightnessctl info | awk -F "'" '/Device/ {print $2}')
   angle="$((((brightness + 2) / 5) * 5))"
   # shellcheck disable=SC2154
   echo "angle: ${angle}"
@@ -36,7 +36,7 @@ send_notification() {
 }
 
 get_brightness() {
-  ddcutil --bus 16 getvcp 10 | sed 's/.*current value = *\([0-9]*\).*/\1/'
+  ddcutil --bus 15 getvcp 10 | sed 's/.*current value = *\([0-9]*\).*/\1/'
 }
 
 step=${BRIGHTNESS_STEPS:-5}
@@ -49,8 +49,8 @@ i | -i) # increase the backlight
     step=1
   fi
 
-  # brightnessctl set +"${step}"%
-  ddcutil --bus 16 setvcp 10 + ${step}
+  brightnessctl set +"${step}"%
+  # ddcutil --bus 15 setvcp 10 + ${step}
   send_notification
   ;;
 d | -d) # decrease the backlight
@@ -61,17 +61,19 @@ d | -d) # decrease the backlight
   fi
 
   if [[ $(get_brightness) -le 1 ]]; then
-    ddcutil --bus 16 setvcp 10 - ${step}
+    brightnessctl set "${step}"%
+    # ddcutil --bus 15 setvcp 10 - ${step}
     exit 0
   else
-    #brightnessctl set "${step}"%
-    ddcutil --bus 16 setvcp 10 - ${step}
+    brightnessctl set "${step}"%-
+    # ddcutil --bus 15 setvcp 10 - ${step}
   fi
-
+  -
   send_notification
   ;;
 s | -s)
-  ddcutil --bus 16 setvcp 10 ${step}
+  brightnessctl set "${step}"%
+  # ddcutil --bus 15 setvcp 10 ${step}
   ;;
 *) # print error
   print_error ;;
