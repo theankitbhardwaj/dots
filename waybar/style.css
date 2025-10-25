@@ -47,7 +47,8 @@
 #memory,
 #custom-lock,
 #custom-power,
-#custom-notification {
+#custom-notification,
+#custom-brightness {
   background-color: #101010;
   padding: 0.5rem 1rem;
   margin: 2px;
@@ -77,19 +78,25 @@
   color: #e78284;
 }
 
-#backlight {
+#custom-brightness {
   color: #e5c890;
 }
 
-#backlight,
+#custom-brightness,
 #battery {
   border-radius: 0;
 }
 
 #pulseaudio {
   color: #ea999c;
+  border-radius: 0px 0px 0px 5%;
+  /* margin-left: 1rem; */
+}
+
+#custom-brightness {
+  /* color: yellow; */
   border-radius: 5px 0px 0px 5%;
-  margin-left: 1rem;
+  margin-left: 0rem;
 }
 
 #custom-music {

@@ -36,7 +36,8 @@ send_notification() {
 }
 
 get_brightness() {
-  ddcutil --bus 15 getvcp 10 | sed 's/.*current value = *\([0-9]*\).*/\1/'
+  brightnessctl info | grep -oP "(?<=\()\d+(?=%)" | cat
+  # ddcutil --bus 15 getvcp 10 | sed 's/.*current value = *\([0-9]*\).*/\1/'
 }
 
 step=${BRIGHTNESS_STEPS:-5}
