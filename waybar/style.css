@@ -48,7 +48,8 @@
 #custom-lock,
 #custom-power,
 #custom-notification,
-#custom-brightness {
+#custom-brightness,
+#idle_inhibitor {
   background-color: #101010;
   padding: 0.5rem 1rem;
   margin: 2px;
@@ -119,6 +120,13 @@
   margin-right: 1rem;
   border-radius: 5px;
   color: #babbf1;
+}
+
+#idle_inhibitor {
+  padding: 0 1.5rem 0 1rem;
+  margin-right: 1rem;
+  border-radius: 5px;
+  color: #aabbff;
 }
 
 #tray {

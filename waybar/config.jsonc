@@ -4,7 +4,7 @@
   "modules-left": [
         "hyprland/workspaces",
     ],
-  "modules-center": ["clock", "custom/notification"],
+  "modules-center": ["clock", "custom/notification", "idle_inhibitor"],
   "modules-right": [
     "custom/brightness",
     "pulseaudio",
@@ -120,6 +120,14 @@
     "on-scroll-down": "brightnessctl set 5%-",
     "return-type":"text",
     "signal": 8
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    },
+    "timeout": 30.5
   }
 }
 
