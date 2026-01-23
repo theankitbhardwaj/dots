@@ -3,6 +3,10 @@ theme = Catppuccin Mocha
 # font-family = Meslo LGS Nerd Font Mono
 font-family = CaskaydiaMono Nerd Font
 # font-family = CaskaydiaCove Nerd Font
+
+font-family = Noto Sans Mono
+font-family = Noto Sans CJK JP
+
 font-size = 14
 background-opacity = 0.95
 gtk-titlebar = false
