@@ -2,10 +2,12 @@
   "layer": "top",
   "position": "top",
   "modules-left": [
+        "custom/app_drawer",
         "hyprland/workspaces",
     ],
   "modules-center": ["clock", "custom/notification", "idle_inhibitor"],
   "modules-right": [
+    "custom/os-update",
     "custom/brightness",
     "pulseaudio",
     "battery",
@@ -16,27 +18,40 @@
     "custom/power"
   ],
   "hyprland/workspaces": {
-    "format": "{icon} : {name} {windows}",
-    // "format": "{icon}",
-    "format-window-separator": " | ",
-    "window-rewrite-default": "",
-    "window-rewrite": {
-      "title<.*youtube.*>": "",
-      "class<firefox>": "",
-      "class<discord>": "",
-      "class<kitty>": "",
-      "class<jetbrains-idea>": "",
-      "class<steam>": "󰓓",
-      "class<gamescope>": "🎮",
-      "class<heroic>": "󰳇",
-      "class<com.mitchellh.ghostty>": "",
-      "class<firefox> title<.*github.*>": "",
-      "class<code>": "󰨞",
-      "title<.* - (.*) - VSCodium>": "codium $1"
+    // "format": "{icon} : {name} {windows}",
+    // "format": "{name}",
+    "format": "{icon}",
+    "persistent-workspaces": {
+      "*": 5,
     },
+    // "format-window-separator": " | ",
+    // "window-rewrite-default": "",
+    // "window-rewrite": {
+    //   "title<.*youtube.*>": "",
+    //   "class<firefox>": "",
+    //   "class<discord>": "",
+    //   "class<kitty>": "",
+    //   "class<jetbrains-idea>": "",
+    //   "class<steam>": "󰓓",
+    //   "class<gamescope>": "🎮",
+    //   "class<heroic>": "󰳇",
+    //   "class<com.mitchellh.ghostty>": "",
+    //   "class<firefox> title<.*github.*>": "",
+    //   "class<code>": "󰨞",
+    //   "title<.* - (.*) - VSCodium>": "codium $1"
+    // },
     "format-icons": {
-      "active": "",
-      "default": "󰄰"
+      "1":"1",
+      "2":"2",
+      "3":"3",
+      "4":"4",
+      "5":"5",
+      "6":"6",
+      "7":"7",
+      "8":"8",
+      "9":"9",
+      // "active": "■",
+      // "default": "󰄰"
       // "active": "███",
       // "default": ""
     }
@@ -62,6 +77,16 @@
     "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
   },
+  "custom/os-update": {
+    "interval": 1800,
+    "format": "{icon} {text}",
+    "tooltip": true,
+    "tooltip-format": "{text} updates available",
+    "on-click-right": "ghostty -e zsh -c \"yay -Syu; echo Done - Press enter to exit; read\" &",
+    "return-type": "text",
+    "format-icons": ["⇣"],
+    "exec": "yay -Qua | wc -l",
+  },
   "memory": {
     "interval": 30,
     "format": "  {used:0.1f}G/{total:0.1f}G",
@@ -84,12 +109,15 @@
   "later": {
       "format": "<span class='icon'>{icon}</span> <span class='text'>{text}</span>"
   },
+  "custom/app_drawer": {
+	  "format": "󰣇",
+    "on-click" : "(pkill rofi || true) && ~/.config/rofi/scripts/launcher_t4"
+  },
   "custom/power": {
-	  "format": " ⏻ ",
-    "on-click" : "$HOME/.config/hypr/scripts/Wlogout.sh",
-	  "on-click": "ghostty --title='power-menu' --class='power-menu' -e tui-power-menu",
-	  "on-click-right": "hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff'",
-	  "tooltip": true,
+    "format": " ⏻ ",
+    "on-click" : "$HOME/.config/rofi/scripts/powermenu_t1",
+    "on-click-right": "hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff'",
+    "tooltip": true,
     "tooltip-format": "Left Click: Poweroff PC"
   },
   "custom/notification": {

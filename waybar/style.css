@@ -1,6 +1,6 @@
 * {
-  font-family: JetbrainsMono Nerd Font;
-  font-size: 12px;
+  font-family: JetBrains Mono, sans-serif;
+  font-size: 14px;
   min-height: 0;
   padding-right: 2px;
   padding-left: 2px;
@@ -11,29 +11,6 @@
   background: transparent;
   color: #c6d0f5;
   margin: 2px 2px;
-}
-
-#workspaces {
-  border-radius: 5px;
-  margin: 5px;
-  background: #101010;
-  margin-left: 1rem;
-}
-
-#workspaces button {
-  color: #babbf1;
-  border-radius: 5px;
-  padding: 0.4rem;
-}
-
-#workspaces button.active {
-  color: #99d1db;
-  border-radius: 5px;
-}
-
-#workspaces button:hover {
-  color: #85c1dc;
-  border-radius: 5px;
 }
 
 #custom-music,
@@ -49,17 +26,15 @@
 #custom-power,
 #custom-notification,
 #custom-brightness,
-#idle_inhibitor {
-  background-color: #101010;
+#idle_inhibitor,
+#custom-app_drawer,
+#custom-os-update {
+  background-color: #1e2030;
   padding: 0.5rem 1rem;
   margin: 2px;
-  
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 5px;
 }
 
-#memory {
-  border-radius: 0px 5px 5px 0px;
-}
 
 #clock {
   color: #8caaee;
@@ -67,37 +42,22 @@
   margin-right: 1rem;
 }
 
-#battery {
-  color: #a6d189;
-}
-
-#battery.charging {
-  color: #a6d189;
-}
-
-#battery.warning:not(.charging) {
-  color: #e78284;
-}
-
 #custom-brightness {
   color: #e5c890;
 }
 
-#custom-brightness,
-#battery {
-  border-radius: 0;
+#custom-app_drawer {
+  padding: 0 1.5rem 0 1rem;
+  font-size: 24px;
+  color: #aabbff;
 }
 
+#custom-os-update {
+  color: #aabbff;
+}
 #pulseaudio {
   color: #ea999c;
-  border-radius: 0px 0px 0px 5%;
   /* margin-left: 1rem; */
-}
-
-#custom-brightness {
-  /* color: yellow; */
-  border-radius: 5px 0px 0px 5%;
-  margin-left: 0rem;
 }
 
 #custom-music {
@@ -132,5 +92,39 @@
 #tray {
   margin-right: 1rem;
   margin-left: 1rem;
-  border-radius: 5px;
+}
+
+#workspaces {
+	margin-left: 12px;
+	margin-bottom: 0;
+	border-radius: 5px;
+	background: #292c3c;
+	transition: none;
+}
+
+#workspaces button {
+	transition: none;
+	color: #f8f8f2;
+	background: transparent;
+	font-size: 32px;
+  font-weight: 500;
+  font-family: "Noto Sans", sans-serif;
+}
+
+#workspaces button.active {
+	transition: none;
+	color: #c6a0f6;
+	/* background: transparent; */
+  /* border-bottom: 2px solid #aabbff; */
+	font-size: 32px;
+  font-weight: 900;
+}
+
+menu {
+    border-radius: 15px;
+    background: #181825;
+    color: #f38ba8;
+}
+menuitem {
+    border-radius: 15px;
 }
