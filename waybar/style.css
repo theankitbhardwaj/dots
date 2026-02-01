@@ -28,7 +28,8 @@
 #custom-brightness,
 #idle_inhibitor,
 #custom-app_drawer,
-#custom-os-update {
+#custom-os-update,
+#custom-timer {
   background-color: #1e2030;
   padding: 0.5rem 1rem;
   margin: 2px;
@@ -55,6 +56,11 @@
 #custom-os-update {
   color: #aabbff;
 }
+
+#custom-timer {
+  color: #ea999c;
+}
+
 #pulseaudio {
   color: #ea999c;
   /* margin-left: 1rem; */

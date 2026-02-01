@@ -22,3 +22,4 @@ Run the install script to symlink configs to `~/.config/`:
 - Waybar
 - Wlogout
 - Wofi
+- Rofi

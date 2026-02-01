@@ -9,6 +9,7 @@ ln -sf $(pwd)/swaync ~/.config/swaync
 ln -sf $(pwd)/waybar ~/.config/waybar
 ln -sf $(pwd)/wlogout ~/.config/wlogout
 ln -sf $(pwd)/wofi ~/.config/wofi
+ln -sf $(pwd)/rofi ~/.config/rofi
 ln -sf $(pwd)/swayosd ~/.config/swayosd
 
 echo "Dotfiles installed successfully!"

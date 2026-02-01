@@ -8,6 +8,7 @@
   "modules-center": ["clock", "custom/notification", "idle_inhibitor"],
   "modules-right": [
     "custom/os-update",
+    "custom/timer",
     "custom/brightness",
     "pulseaudio",
     "battery",
@@ -158,6 +159,22 @@
       "deactivated": ""
     },
     "timeout": 30.5
-  }
+  },
+  "custom/timer": {
+    "exec": "$HOME/.config/waybar/scripts/waybar_timer hook",
+    "exec-on-event": false,
+    "return-type": "json",
+    "format": "{icon} {0}",
+    "format-icons": {
+        "standby": "󰔛",
+        "running": "󱎫",
+        "paused": "󱎪"
+    },
+    "on-click": "$HOME/.config/waybar/scripts/waybar_timer new 25 'notify-send \"Session finished\"'",
+    "on-click-middle": "$HOME/.config/waybar/scripts/waybar_timer cancel",
+    "on-click-right": "$HOME/.config/waybar/scripts/waybar_timer togglepause",
+    "on-scroll-up": "$HOME/.config/waybar/scripts/waybar_timer increase 60 || $HOME/.config/waybar/scripts/waybar_timer new 1 'notify-send -u critical \"Timer expired\"'",
+    "on-scroll-down": "$HOME/.config/waybar/scripts/waybar_timer decrease 60"
+}
 }
 
