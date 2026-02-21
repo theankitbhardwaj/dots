@@ -5,7 +5,7 @@
         "custom/app_drawer",
         "hyprland/workspaces",
     ],
-  "modules-center": ["clock", "custom/notification", "idle_inhibitor"],
+  "modules-center": ["clock", "idle_inhibitor"],
   "modules-right": [
     "custom/os-update",
     "custom/timer",
@@ -16,6 +16,7 @@
     "cpu",
     "memory",
     "tray",
+    "custom/notification",
     "custom/power"
   ],
   "hyprland/workspaces": {

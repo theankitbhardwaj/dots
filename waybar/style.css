@@ -118,10 +118,11 @@
 }
 
 #workspaces button.active {
-	transition: none;
-	color: #c6a0f6;
-	/* background: transparent; */
+	color: #ffffff;
+	background: #568BF7;
+  /* opacity: 0.6; */
   /* border-bottom: 2px solid #aabbff; */
+  border-radius: 0px 0px 3px 3px;
 	font-size: 32px;
   font-weight: 900;
 }
